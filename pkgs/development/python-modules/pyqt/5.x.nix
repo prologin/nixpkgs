@@ -5,6 +5,7 @@
 , qtsvg
 , qtdeclarative
 , qtwebchannel
+, qtserialport
 , withConnectivity ? false, qtconnectivity
 , withMultimedia ? false, qtmultimedia
 , withWebKit ? false, qtwebkit
@@ -68,6 +69,7 @@ in buildPythonPackage rec {
     qtsvg
     qtdeclarative
     qtwebchannel
+    qtserialport
   ]
     ++ lib.optional withConnectivity qtconnectivity
     ++ lib.optional withMultimedia qtmultimedia
@@ -80,6 +82,7 @@ in buildPythonPackage rec {
     qtbase
     qtsvg
     qtdeclarative
+    qtserialport
   ]
     ++ lib.optional withConnectivity qtconnectivity
     ++ lib.optional withWebKit qtwebkit
@@ -143,6 +146,7 @@ in buildPythonPackage rec {
     "PyQt5.QtQml"
     "PyQt5.QtWidgets"
     "PyQt5.QtGui"
+    "PyQt5.QtSerialPort"
   ]
     ++ lib.optional withWebSockets "PyQt5.QtWebSockets"
     ++ lib.optional withWebKit "PyQt5.QtWebKit"

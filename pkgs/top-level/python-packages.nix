@@ -1335,6 +1335,8 @@ in {
 
   coqpit = callPackage ../development/python-modules/coqpit { };
 
+  colorzero = callPackage ../development/python-modules/colorzero { };
+
   cerberus = callPackage ../development/python-modules/cerberus { };
 
   cert-chain-resolver = callPackage ../development/python-modules/cert-chain-resolver { };
@@ -3008,6 +3010,8 @@ in {
 
   gpapi = callPackage ../development/python-modules/gpapi { };
 
+  gpiozero = callPackage ../development/python-modules/gpiozero { };
+
   gplaycli = callPackage ../development/python-modules/gplaycli { };
 
   gpgme = toPythonModule (pkgs.gpgme.override {
@@ -3135,6 +3139,8 @@ in {
     throw "gurobipy not yet supported on ${stdenv.hostPlatform.system}";
 
   guzzle_sphinx_theme = callPackage ../development/python-modules/guzzle_sphinx_theme { };
+
+  guizero = callPackage ../development/python-modules/guizero { };
 
   gviz-api = callPackage ../development/python-modules/gviz-api {};
 
@@ -4807,6 +4813,8 @@ in {
 
   ntplib = callPackage ../development/python-modules/ntplib { };
 
+  nudatus = callPackage ../development/python-modules/nudatus { };
+
   Nuitka = callPackage ../development/python-modules/nuitka { };
 
   num2words = callPackage ../development/python-modules/num2words { };
@@ -5176,6 +5184,8 @@ in {
 
   pgspecial = callPackage ../development/python-modules/pgspecial { };
 
+  pgzero = callPackage ../development/python-modules/pgzero { };
+
   phe = callPackage ../development/python-modules/phe { };
 
   phik = callPackage ../development/python-modules/phik { };
@@ -5193,6 +5203,8 @@ in {
   piccata = callPackage ../development/python-modules/piccata { };
 
   pickleshare = callPackage ../development/python-modules/pickleshare { };
+
+  pigpio = callPackage ../development/python-modules/pigpio { };
 
   picos = callPackage ../development/python-modules/picos { };
 
@@ -6306,6 +6318,8 @@ in {
   pyqt5_with_qtwebkit = self.pyqt5.override {
     withWebKit = true;
   };
+
+  pyqtchart = pkgs.libsForQt5.callPackage ../development/python-modules/pyqtchart { };
 
   pyqtgraph = callPackage ../development/python-modules/pyqtgraph { };
 
