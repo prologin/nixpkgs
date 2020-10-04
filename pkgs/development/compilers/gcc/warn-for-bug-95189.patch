@@ -1,0 +1,31 @@
+From dcc2606d510cc382fd2a9ab387ac99f2423d3973 Mon Sep 17 00:00:00 2001
+From: Tim Ruffing <crypto@timruffing.de>
+Date: Fri, 25 Sep 2020 11:51:43 +0200
+Subject: [PATCH] HACK: Warn for bug 95189
+
+---
+ gcc/builtins.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/gcc/builtins.c b/gcc/builtins.c
+index 53bae599d3e..0935a668570 100644
+--- a/gcc/builtins.c
++++ b/gcc/builtins.c
+@@ -7663,6 +7663,14 @@ inline_expand_builtin_string_cmp (tree exp, rtx target)
+ 
+   machine_mode mode = TYPE_MODE (TREE_TYPE (exp));
+ 
++  /* HACK */
++  if (fcode == BUILT_IN_MEMCMP && length < len3)
++    {
++      location_t loc = EXPR_HAS_LOCATION(exp) ? EXPR_LOCATION (exp) : UNKNOWN_LOCATION;
++      loc = expansion_point_location_if_in_system_header(loc);
++      emit_diagnostic(DK_DEBUG, loc, 0, "Potentially miscompiled memcmp");
++    }
++
+   /* Now, start inline expansion the call.  */
+   return inline_string_cmp (target, (const_str_n == 1) ? arg2 : arg1,
+ 			    (const_str_n == 1) ? src_str1 : src_str2, length,
+-- 
+2.28.0
+
