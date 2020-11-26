@@ -4,13 +4,13 @@ with python3.pkgs;
 
 buildPythonApplication rec {
   pname = "mkdocs";
-  version = "1.0.4";
+  version = "1.1.2";
 
   src = fetchFromGitHub {
     owner = "mkdocs";
     repo = "mkdocs";
     rev = version;
-    sha256 = "1x35vgiskgz4wwrvi4m1mri5wlphf15p90fr3rxsy5bf19v3s9hs";
+    sha256 = "1ngrm2w0fw89ckd9606bvqvxcjs6fna93n26cckqzwjsf7kwfhvp";
   };
 
   checkInputs = [
@@ -41,7 +41,7 @@ buildPythonApplication rec {
       MkDocs is a fast, simple and downright gorgeous static site generator that's
       geared towards building project documentation. Documentation source files
       are written in Markdown, and configured with a single YAML configuration file.
-      
+
       MkDocs can also be used to generate general-purpose Websites.
     '';
     homepage = "http://mkdocs.org/";
