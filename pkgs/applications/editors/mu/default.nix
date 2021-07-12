@@ -31,6 +31,8 @@ python3Packages.buildPythonApplication rec {
     flask
     gpiozero
     guizero
+    ipykernel
+    jupyter_client
     matplotlib
     nudatus
     pgzero
