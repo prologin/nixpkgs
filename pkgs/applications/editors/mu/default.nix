@@ -1,4 +1,4 @@
-{ lib, python3Packages, fetchFromGitHub, xorg, qtserialport, wrapQtAppsHook }:
+{ lib, python3Packages, fetchFromGitHub, xorg, qtserialport, wrapQtAppsHook, makeDesktopItem }:
 
 python3Packages.buildPythonApplication rec {
   pname = "mu-editor";
@@ -55,6 +55,20 @@ python3Packages.buildPythonApplication rec {
   preFixup = ''
     wrapQtApp "$out/bin/mu-editor"
   '';
+
+  postInstall = ''
+    mkdir -p $out/share/applications
+    ln -s ${muItem}/share/applications/* $out/share/applications
+  '';
+
+  muItem = makeDesktopItem {
+    name = "Mu";
+    exec = "mu-editor";
+    comment = "Mu Editor";
+    desktopName = "Mu Editor";
+    genericName = "Python Text Editor";
+    categories = "Development";
+  };
 
   meta = with lib; {
     homepage = "https://codewith.mu/";
