@@ -58,16 +58,20 @@ python3Packages.buildPythonApplication rec {
 
   postInstall = ''
     mkdir -p $out/share/applications
+    mkdir -p $out/share/icons/hicolor/256x256/apps
     ln -s ${muItem}/share/applications/* $out/share/applications
+    ln -s $out/lib/python3.8/site-packages/mu/resources/images/icon.png $out/share/icons/hicolor/256x256/apps/mu.codewith.editor.png
   '';
 
   muItem = makeDesktopItem {
-    name = "Mu";
-    exec = "mu-editor";
-    comment = "Mu Editor";
-    desktopName = "Mu Editor";
-    genericName = "Python Text Editor";
-    categories = "Development";
+    name = "mu.codewith.editor";
+    icon = "mu.codewith.editor";
+    desktopName = "mu";
+    genericName = "A Python editor for beginner programmers";
+    comment = "A Python editor for beginner programmers";
+    exec = "mu-editor %F";
+    categories = "Application;Development;";
+    mimeType = "text/x-python;text/x-python3;";
   };
 
   meta = with lib; {
